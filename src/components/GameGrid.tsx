@@ -19,7 +19,7 @@ const GameGrid = () => {
         borderRadius="15px"
       >
         {games.map((game) => (
-          <GameCard game={game} />
+          <GameCard game={game} key={game.id} />
         ))}
       </SimpleGrid>
     </>

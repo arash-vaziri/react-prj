@@ -1,7 +1,5 @@
 const apiKey = import.meta.env.VITE_API_KEY;
 
-console.log('key >' , apiKey);
-
 const environment = {
 
     server : 'https://api.rawg.io/api',
