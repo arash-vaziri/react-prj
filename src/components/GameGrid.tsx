@@ -15,8 +15,7 @@ const GameGrid = () => {
           lg: 3,
           xl: 5,
         }}
-        gap={"1em"}
-        borderRadius="15px"
+        gap="1.5em"
       >
         {games.map((game) => (
           <GameCard game={game} key={game.id} />
