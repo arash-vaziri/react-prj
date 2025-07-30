@@ -5,9 +5,10 @@ import { CanceledError } from "axios";
 
 const endPoint = environment.endPoints.game;
 
-interface Game {
+export interface Game {
   id: number;
   name: string;
+  background_image : string;
 }
 
 interface GameRes {
