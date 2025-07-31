@@ -29,20 +29,29 @@ const useGames = () => {
 
     const [games, setGames] = useState<Game[]>([]);
     const [error, setError] = useState([]);
+    const [isLoading, setLoading] = useState(false);
 
     
     useEffect(() => {
         
         const controller = new AbortController();
-        
+        setLoading(true);
+
+
         dataSrv
           .get<GameRes>(endPoint.list , { signal : controller.signal })
-          .then((res) => setGames(res.data.results))
+          .then((res) => {
+          
+            setGames(res.data.results)
+            setLoading(false);
+          
+          })
           .catch((error) => {
 
             if (error instanceof CanceledError) return;
 
             setError(error.message);
+            setLoading(false);
           
            });
 
@@ -53,7 +62,8 @@ const useGames = () => {
 
     return {
         games,
-        error
+        error,
+        isLoading
     }
 
 
