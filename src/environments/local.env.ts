@@ -8,7 +8,10 @@ const environment = {
 
         game : {
             list : '/games',
-        }
+        },
+        genre : {
+            list : "/genres"
+        } 
 
 
 
