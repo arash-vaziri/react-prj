@@ -1,5 +1,6 @@
 import   environment  from "@/environments/local.env";
 import useData from "./useData";
+import type { Genre } from "./useGenre";
 
 const endpoint = environment.endPoints.game;
 
@@ -18,6 +19,6 @@ export interface Game {
   metacritic : number
 }
 
-const useGames = () => useData<Game>(endpoint.list);
+const useGames = (selectedGenre : Genre | null ) => useData<Game>(endpoint.list , { params : { genres : selectedGenre?.id} } ,[selectedGenre?.id]);
 
 export default useGames;

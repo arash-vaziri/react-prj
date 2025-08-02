@@ -3,7 +3,7 @@ import useData from "./useData";
 
 const endpoint = environment.endPoints.genre;
 
-interface Genre {
+export interface Genre {
   id: number;
   name: string;
   slug: string;
