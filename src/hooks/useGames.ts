@@ -22,7 +22,8 @@ export interface Game {
 const useGames = (gameQuery : GameQuery  ) => useData<Game>(endpoint.list , { params : { 
   genres : gameQuery.genre?.id , 
   parent_platforms : gameQuery.platform?.id ,
-  ordering : gameQuery.ordering
+  ordering : gameQuery.ordering,
+  search : gameQuery.searchText
 
 } } ,[gameQuery]);
 
