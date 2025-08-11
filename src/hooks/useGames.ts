@@ -1,6 +1,5 @@
 import   environment  from "@/environments/local.env";
 import useData from "./useData";
-import type { Genre } from "./useGenre";
 import type { GameQuery } from "@/App";
 
 const endpoint = environment.endPoints.game;
@@ -20,6 +19,11 @@ export interface Game {
   metacritic : number
 }
 
-const useGames = (gameQuery : GameQuery  ) => useData<Game>(endpoint.list , { params : { genres : gameQuery.genre?.id , parent_platforms : gameQuery.platform?.id} } ,[gameQuery]);
+const useGames = (gameQuery : GameQuery  ) => useData<Game>(endpoint.list , { params : { 
+  genres : gameQuery.genre?.id , 
+  parent_platforms : gameQuery.platform?.id ,
+  ordering : gameQuery.ordering
+
+} } ,[gameQuery]);
 
 export default useGames;
